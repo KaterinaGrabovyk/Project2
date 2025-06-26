@@ -23,4 +23,22 @@ class Transactions extends Model{
             $query->execute([$date->format('Y-m-d'),$check,$line[2],$amount]);  
         }             
     }
+    public function getData():array{
+            $query=$this->db->prepare('select * from transactions');
+            $query->execute();   
+            $data=$query->fetchAll();
+            return $data;
+    }
+    function totals(array $data):array{
+    $totals=['Total'=>0,'Income'=>0,'Expense'=>0];
+    foreach($data as $transact){
+        $totals['Total']+=$transact['amount'];
+        if($transact['amount']>=0){
+            $totals['Income']+=$transact['amount'];
+        }else{
+            $totals['Expense']+=$transact['amount'];
+        }
+    }
+    return $totals;
+    }
 }

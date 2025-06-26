@@ -12,5 +12,6 @@
             <input type="file" name="transacts">
             <button type="submit">ok</button>
         </form>
+        <a href="/transacts">View</a>
     </body>
 </html>

@@ -34,20 +34,27 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- TODO -->
+              <?php foreach($data as $line):?>
+               <tr>
+                    <td><?= $line['date'] ?></td>
+                    <td><?= $line['check'] ?></td>
+                    <td><?=$line['descr']?></td>
+                    <td><?= $line['amount']?></td>
+              </tr>
+                 <?php endforeach; ?>
             </tbody>
             <tfoot>
                 <tr>
                     <th colspan="3">Total Income:</th>
-                    <td><!-- TODO --></td>
+                    <td><?php echo $totals['Income'] ?> $</td>
                 </tr>
                 <tr>
                     <th colspan="3">Total Expense:</th>
-                    <td><!-- TODO --></td>
+                    <td><?php echo $totals['Expense'] ?> $</td>
                 </tr>
                 <tr>
                     <th colspan="3">Net Total:</th>
-                    <td><!-- TODO --></td>
+                    <td><?php echo $totals['Total'] ?> $</td>
                 </tr>
             </tfoot>
         </table>
