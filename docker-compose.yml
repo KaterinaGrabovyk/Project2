@@ -12,7 +12,7 @@ services:
       - ./:/var/www
   nginx:
     image: nginx:1.19-alpine
-    container_name: app-nginx
+    container_name: tr-app-nginx
     restart: no
     ports:
       - 8000:80
@@ -20,7 +20,7 @@ services:
       - ./:/var/www
       - ./docker/nginx:/etc/nginx/conf.d
   db:
-    container_name: mySQL
+    container_name: TR_mySQL
     image: mysql:8.0
     volumes:
       - ./storage/mysql:/var/lib/mysql
